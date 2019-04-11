@@ -1,0 +1,39 @@
+@model List<Dish>
+
+<div class="header">
+    <a href="/">Chefs</a> | Dishes
+</div>
+
+<a href="GetDishAddForm" class="btn btn-primary">Add a Dish</a>
+
+<p class="title">Yum, take a look at our tasty dishes!</p>
+
+<table class="table table-primary table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+            <th>Tastiness</th>
+            <th>Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var d in Model)
+        {
+            <tr>
+                <td>
+                    @d.Name
+                </td>
+                <td>
+                    @d.PreparedBy.FristName @d.PreparedBy.LastName
+                </td>
+                <td>
+                    @d.Tastiness
+                </td>
+                <td>
+                    @d.Calories
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

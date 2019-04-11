@@ -1,0 +1,35 @@
+﻿@model List<Chef>
+
+<div class="header">
+    Chefs | <a href="GetDishesList">Dishes</a>
+</div>
+
+<a href="GetChefAddForm" class="btn btn-primary">Add a Chef</a>
+
+<p class="title">Check out our roster of Chefs!</p>
+
+<table class="table table-primary table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th># of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var ch in Model)
+        {
+            <tr>
+                <td>
+                    @ch.FristName @ch.LastName
+                </td>
+                <td>
+                    @(string.Format("{0}", Math.Round(Math.Abs(((DateTime.Now - Convert.ToDateTime(ch.DOB)).TotalDays))/365).ToString()))
+                </td>
+                <td>
+                    @ch.Dishes.Count
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
